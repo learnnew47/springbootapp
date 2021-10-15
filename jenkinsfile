@@ -13,10 +13,9 @@ pipeline {
             }
         }
  
-        Stage('Docker Image'){
+      Stage('Create Tomcat Docker Image'){
             steps {
-                sh "docker build . -t springboot:${env.BUILD_ID}"
-                sh "docker tag springboot:lastest"
+                sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
             }
         }
  
