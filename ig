@@ -23,3 +23,28 @@ spec:
       target:
         type: Utilization
         averageUtilization: 80
+
+
+
+
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jj-nginx-ingress
+  namespace: e-ns
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: de-service
+            port:
+              number: 8083
