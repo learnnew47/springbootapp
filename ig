@@ -48,3 +48,19 @@ spec:
             name: de-service
             port:
               number: 8083
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sprig-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/"
