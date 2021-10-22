@@ -64,3 +64,17 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/"
+
+
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: volume-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
